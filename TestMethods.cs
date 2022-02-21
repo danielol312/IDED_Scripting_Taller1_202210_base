@@ -71,37 +71,33 @@ namespace TestProject1
             
             
             
-            Dictionary<int, EValueType> diccionario = new Dictionary<int, EValueType>();
+            Dictionary<int, EValueType> result = new Dictionary<int, EValueType>();
             int [] arreglo= {1, 4, 2, 3, 5};
 
-            for (int i = 0; i < arreglo.Length; i++)
+            for (int i = 0; i < sourceArr.Length; i++)
             {
-                if((arreglo[i] % 2) == 0)
+                if (sourceArr[i] % 2 == 0)
                 {
-                diccionario.Add(arreglo[i],EValueType.Two);
+                    result.Add(sourceArr[i], EValueType.Two);
                 }
-                else if((arreglo[i] % 5) == 0)
+                else if (sourceArr[i] % 3 == 0)
                 {
-                diccionario.Add(arreglo[i],EValueType.Five);
+                    result.Add(sourceArr[i], EValueType.Three);
                 }
-                else if((arreglo[i] % 7) == 0)
+                else if (sourceArr[i] % 5 == 0)
                 {
-                diccionario.Add(arreglo[i],EValueType.Seven);
+                    result.Add(sourceArr[i], EValueType.Five);
                 }
-                else if((arreglo[i] % 5) == 0)
+                else if (sourceArr[i] % 7 == 0)
                 {
-                diccionario.Add(arreglo[i],EValueType.Five);
+                    result.Add(sourceArr[i], EValueType.Seven);
                 }
-                else if((arreglo[i] % 3) == 0)
+                else if (sourceArr[i] % i == 0)
                 {
-                diccionario.Add(arreglo[i],EValueType.Three);
-                }
-                else if((arreglo[i] % i) != 0)
-                {
-                diccionario.Add(arreglo[i],EValueType.Prime);
+                    result.Add(sourceArr[i], EValueType.Prime);
                 }
             }
-            return diccionario;
+            return result;
         }
 
         internal static int CountDictionaryRegistriesWithValueType(Dictionary<int, EValueType> sourceDict, EValueType type)
