@@ -103,12 +103,17 @@ namespace TestProject1
         internal static int CountDictionaryRegistriesWithValueType(Dictionary<int, EValueType> sourceDict, EValueType type)
         {
             //recorrer el diccionario entregándole como key un valor del arreglo y como value el que entregaba el método
-            int contador=0;
+            int count = 0;
+
             for (int i = 0; i < sourceDict.Count; i++)
             {
-                contador++;
+                if (sourceDict[i].Equals(type))
+                {
+                    count++;
+                }
             }
-            return contador;
+
+            return count;
         }
 
         internal static Dictionary<int, EValueType> SortDictionaryRegistries(Dictionary<int, EValueType> sourceDict)
@@ -127,6 +132,28 @@ namespace TestProject1
         internal static Queue<Ticket>[] ClassifyTickets(List<Ticket> sourceList)
         {
             Queue<Ticket>[] result = null;
+            for (int i = 0; i < sourceList.Count; i++)
+             {
+                 if (sourceList[i].ERequestType==Subscription)
+                 {
+                     result[0].Append(sourceList[i]);
+                 }
+                 if (sourceList[i].ERequestType.Payment)
+                 {
+                     result[1].Append(sourceList[i]);
+                 }
+                 if (sourceList[i].ERequestType.Cancellation)
+                 {
+                     result[2].Append(sourceList[i]);
+                 }
+             }
+
+             result.Sort(sourceList.Payment);
+             result.Reverse(sourceList.Payment);
+             result.Sort(sourceList.Subscription);
+             result.Reverse(sourceList.Subscription);
+             result.Sort(sourceList.Cancellation);
+             result.Reverse(sourceList.Cancellation);
 
             return result;
         }
