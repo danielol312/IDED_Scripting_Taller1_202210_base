@@ -68,19 +68,62 @@ namespace TestProject1
 
         internal static Dictionary<int, EValueType> FillDictionaryFromSource(int[] sourceArr)
         {
-            Dictionary<int, EValueType> result = new Dictionary<int, EValueType>();
+            
+            
+            
+            Dictionary<int, EValueType> diccionario = new Dictionary<int, EValueType>();
+            int [] arreglo= {1, 4, 2, 3, 5};
 
-            return result;
+            for (int i = 0; i < arreglo.Length; i++)
+            {
+                if((arreglo[i] % 2) == 0)
+                {
+                diccionario.Add(arreglo[i],EValueType.Two);
+                }
+                else if((arreglo[i] % 5) == 0)
+                {
+                diccionario.Add(arreglo[i],EValueType.Five);
+                }
+                else if((arreglo[i] % 7) == 0)
+                {
+                diccionario.Add(arreglo[i],EValueType.Seven);
+                }
+                else if((arreglo[i] % 5) == 0)
+                {
+                diccionario.Add(arreglo[i],EValueType.Five);
+                }
+                else if((arreglo[i] % 3) == 0)
+                {
+                diccionario.Add(arreglo[i],EValueType.Three);
+                }
+                else if((arreglo[i] % i) != 0)
+                {
+                diccionario.Add(arreglo[i],EValueType.Prime);
+                }
+            }
+            return diccionario;
         }
 
         internal static int CountDictionaryRegistriesWithValueType(Dictionary<int, EValueType> sourceDict, EValueType type)
         {
-            return 0;
+            //recorrer el diccionario entregándole como key un valor del arreglo y como value el que entregaba el método
+            int contador=0;
+            for (int i = 0; i < sourceDict.Count; i++)
+            {
+                contador++;
+            }
+            return contador;
         }
 
         internal static Dictionary<int, EValueType> SortDictionaryRegistries(Dictionary<int, EValueType> sourceDict)
         {
             Dictionary<int, EValueType> result = new Dictionary<int, EValueType>();
+            //crear un arreglo de dos dimensiones {key} {value}
+            int[,] matriz = new int [sourceDict.Count,2];
+            {
+                {Dictionary[i],FillDictionaryFromSource.diccionario[i]}
+            }
+
 
             return result;
         }
